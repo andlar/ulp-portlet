@@ -6,6 +6,15 @@ export const initialState = {
 
 export const reducer = ( state = initialState, action ) => {
     switch(action.type) {
+    case types.DELETE_TODO:
+        return {
+            ...state,
+            todos: [
+                ...state.todos.filter(todo => (
+                    todo.id !== action.id
+                )),
+            ],
+        };
     case types.SUBMIT_TODO:
         return {
             ...state,

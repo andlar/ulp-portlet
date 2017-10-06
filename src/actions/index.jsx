@@ -8,6 +8,12 @@ const nextId = () => {
 };
 
 const actions = {
+    deleteTodo(id) {
+        return {
+            type: types.DELETE_TODO,
+            id,
+        };
+    },
     submitTodo(text) {
         return {
             type: types.SUBMIT_TODO,
