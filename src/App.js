@@ -4,26 +4,32 @@ import PropTypes from 'prop-types';
 
 import './App.css';
 import logo from './logo.svg';
-import AddTodo from './components/AddTodo';
+import AddTodo from './components/addTodo';
+import TodoList from './components/todoList';
 import actions from './actions';
 
-export const App = ({ submitTodo }) => (
+export const App = ({ submitTodo, todos }) => (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1 className="App-title">Welcome to React</h1>
       </header>
-      <p className="App-intro">
         <AddTodo submitTodo={submitTodo} />
-      </p>
+        <TodoList todos={todos} />
     </div>
 );
 
 App.propTypes = {
     submitTodo: PropTypes.func.isRequired,
+    todos: PropTypes.arrayOf(PropTypes.shape(
+        {
+            id: PropTypes.number.isRequired,
+            text: PropTypes.string.isRequired,
+        },
+    )).isRequired,
 };
 
-const mapStateToProps = state => state.todoListApp;
+const mapStateToProps = state => state.reducer;
 
 const mapDispatchToProps = dispatch => ({
     submitTodo: (text) => {

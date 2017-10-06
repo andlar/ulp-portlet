@@ -11,6 +11,10 @@ Enzyme.configure({ adapter: new Adapter() });
 it('renders without crashing', () => {
     const mockFunction = jest.fn();
 
-    const component = shallow(<App state={initialState} submitTodo={mockFunction} />);
+    const component = shallow(<App
+                              state={initialState}
+                              submitTodo={mockFunction}
+                              todos={[]}
+                              />);
     expect(component.exists()).toEqual(true);
 });

@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
         <Provider store={store}>
-        <App />
+        <App todos={[]} />
         </Provider>,
     document.getElementById('root'),
 );
