@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
+
 import './App.css';
+import AddTodo from './components/AddTodo';
 
 const App = () => (
     <div className="App">
@@ -9,7 +11,7 @@ const App = () => (
         <h1 className="App-title">Welcome to React</h1>
       </header>
       <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
+        <AddTodo submitTodo={() => {}} />
       </p>
     </div>
 );
