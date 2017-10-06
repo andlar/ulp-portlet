@@ -8,9 +8,12 @@ import store from './store';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-        <Provider store={store}>
-        <App todos={[]} />
-        </Provider>,
+    <Provider store={store}>
+      <App
+         todos={[]}
+         deletedTodos={[]}
+         />
+    </Provider>,
     document.getElementById('root'),
 );
 

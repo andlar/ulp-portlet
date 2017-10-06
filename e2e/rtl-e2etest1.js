@@ -29,4 +29,16 @@ describe('ULP App', () => {
         const actual = browser.element('.todo-text');
         expect(actual.state).to.equal('failure');
     });
+
+    it('Should allow me to undelete a Todo', () => {
+        const todoText = 'Some text';
+        browser.url('http://localhost:3000/');
+        browser.element('.todo-input').setValue(todoText);
+        browser.click('.todo-submit');
+        browser.click('.todo-delete');
+        browser.click('.todo-undelete');
+
+        const actual = browser.element('.todo-text').getText();
+        expect(actual).to.equal(todoText);
+    });
 });

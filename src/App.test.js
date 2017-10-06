@@ -15,6 +15,8 @@ it('renders without crashing', () => {
                               state={initialState}
                               submitTodo={mockFunction}
                               deleteTodo={mockFunction}
+                              undeleteTodo={mockFunction}
+                              deletedTodos={[]}
                               todos={[]}
                               />);
     expect(component.exists()).toEqual(true);
