@@ -34,10 +34,14 @@ const TodoList = ({ todos, deleteTodo, deletedTodos, undeleteTodo }) => {
           <ul>
             {todoItems}
           </ul>
-          <span>Deleted Todos:</span>
-          <ul>
-            {deletedTodoItems}
-          </ul>
+          {deletedTodoItems.length > 0 &&
+              <span>
+                    <span>Deleted Todos:</span>
+                        <ul>
+                              {deletedTodoItems}
+                            </ul>
+                  </span>
+              }
         </span>
     );
 };
