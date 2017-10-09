@@ -21,6 +21,12 @@ const actions = {
             text,
         };
     },
+    switchTab(target) {
+        return {
+            type: types.SWITCH_TAB,
+            target,
+        };
+    },
     undeleteTodo(id) {
         return {
             type: types.UNDELETE_TODO,

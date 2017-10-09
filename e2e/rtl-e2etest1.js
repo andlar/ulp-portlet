@@ -41,4 +41,12 @@ describe('ULP App', () => {
         const actual = browser.element('.todo-text').getText();
         expect(actual).to.equal(todoText);
     });
+
+    it('should allow me to switch to the patients panel', () => {
+        browser.url('http://localhost:3000/');
+        browser.element('button=Patients').click();
+
+        const pageH1 = browser.element('h2').getText();
+        expect(pageH1).to.equal('ULP Patients');
+    });
 });

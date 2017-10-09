@@ -18,7 +18,7 @@ describe('the Reducer', () => {
             };
 
             const expectedState = {
-                deletedTodos: [],
+                    ...initialState,
                 todos: [
                     {
                         id: 1,
@@ -87,6 +87,25 @@ describe('the Reducer', () => {
                     },
                 ],
                 deletedTodos: [],
+            };
+
+            expect(reducer(startingState, action)).toEqual(expectedState);
+        });
+    });
+
+    describe('when switching tabs', () => {
+        it('should set state to the new tab', () => {
+            const startingState = {
+                tab: 'todo',
+            };
+
+            const action = {
+                type: types.SWITCH_TAB,
+                target: 'patients',
+            };
+
+            const expectedState = {
+                tab: 'patients',
             };
 
             expect(reducer(startingState, action)).toEqual(expectedState);

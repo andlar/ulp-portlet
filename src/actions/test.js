@@ -32,4 +32,13 @@ describe('Actions', () => {
 
         expect(actions.undeleteTodo(1)).toEqual(expectedAction);
     });
+
+    it('should create an action to switch to a tab', () => {
+        const expectedAction = {
+            type: types.SWITCH_TAB,
+            target: 'patients',
+        };
+
+        expect(actions.switchTab('patients')).toEqual(expectedAction);
+    });
 });

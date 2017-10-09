@@ -1,6 +1,7 @@
 import types from '../constants/';
 
 export const initialState = {
+    tab: 'todo',
     todos: [],
     deletedTodos: [],
 };
@@ -31,6 +32,11 @@ export const reducer = ( state = initialState, action ) => {
                     text: action.text,
                 },
             ],
+        };
+    case types.SWITCH_TAB:
+        return {
+            ...state,
+            tab: action.target,
         };
     case types.UNDELETE_TODO:
         return {
