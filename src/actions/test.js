@@ -41,4 +41,13 @@ describe('Actions', () => {
 
         expect(actions.switchTab('patients')).toEqual(expectedAction);
     });
+
+    it('should create an action to get Patients', () => {
+        const expectedAction = {
+            type: types.GET_PATIENTS,
+        };
+
+
+        expect(actions.getPatients()).toEqual(expectedAction);
+    });
 });

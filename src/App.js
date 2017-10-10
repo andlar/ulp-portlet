@@ -12,6 +12,7 @@ import actions from './actions';
 export const App = ({
     deleteTodo,
     deletedTodos,
+    getPatients,
     patients,
     submitTodo,
     switchTab,
@@ -54,6 +55,11 @@ export const App = ({
           {tab === 'patients' &&
               <div>
                     <h2>ULP Patients</h2>
+                        <button
+                               type="button"
+                               onClick={() => getPatients()}>
+                              Refresh
+                            </button>
                     <PatientList
                            status="recent"
                            patients={patients}
@@ -79,6 +85,7 @@ App.propTypes = {
             text: PropTypes.string.isRequired,
         },
     )).isRequired,
+    getPatients: PropTypes.func.isRequired,
     patients: PropTypes.arrayOf(PropTypes.shape(
         {
             id: PropTypes.number.isRequired,
@@ -100,6 +107,9 @@ App.propTypes = {
 const mapStateToProps = state => state.reducer;
 
 const mapDispatchToProps = dispatch => ({
+    getPatients: () => {
+        dispatch(actions.getPatients());
+    },
     submitTodo: (text) => {
         if (text) {
             dispatch(actions.submitTodo(text));

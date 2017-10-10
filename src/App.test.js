@@ -17,6 +17,7 @@ it('renders without crashing', () => {
                               deleteTodo={mockFunction}
                               tab={'todo'}
                               patients={[]}
+                              getPatients={mockFunction}
                               switchTab={mockFunction}
                               undeleteTodo={mockFunction}
                               deletedTodos={[]}

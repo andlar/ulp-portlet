@@ -14,6 +14,11 @@ const actions = {
             id,
         };
     },
+    getPatients() {
+        return {
+            type: types.GET_PATIENTS,
+        };
+    },
     submitTodo(text) {
         return {
             type: types.SUBMIT_TODO,

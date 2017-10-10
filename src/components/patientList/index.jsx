@@ -27,6 +27,7 @@ PatientList.propTypes = {
         {
             id: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired,
+            status: PropTypes.string.isRequired,
         },
     )).isRequired,
     status: PropTypes.string.isRequired,

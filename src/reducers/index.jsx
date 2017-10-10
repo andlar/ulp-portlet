@@ -22,6 +22,19 @@ export const reducer = ( state = initialState, action ) => {
                 ))),
             ],
         };
+    case types.GET_PATIENTS:
+    case types.GET_PATIENTS_FAILED:
+        return {
+            ...state,
+            loading: true,
+            patients: [],
+        };
+    case types.GET_PATIENTS_SUCCEEDED:
+        return {
+            ...state,
+            loading: false,
+            patients: action.patients,
+        };
     case types.SUBMIT_TODO:
         return {
             ...state,
