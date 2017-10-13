@@ -7,6 +7,7 @@ const AddTodo = ({ submitTodo }) => {
     return (
         <div>
           <form
+             className="pure-form"
              onSubmit={(event) => {
                  event.preventDefault();
                  submitTodo(input.value);
@@ -19,8 +20,10 @@ const AddTodo = ({ submitTodo }) => {
                    input = element;
               }}
               />
-              <button type="submit" className="todo-submit">
-                Add Todo
+              <button
+                 type="submit"
+                 className="pure-button pure-button-primary todo-submit">
+                <i className="fa fa-plus"></i>
               </button>
           </form>
         </div>

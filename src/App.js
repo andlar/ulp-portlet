@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './App.css';
-import logo from './logo.svg';
 import AddTodo from './components/addTodo';
 import PatientList from './components/patientList';
 import TodoList from './components/todoList';
@@ -20,58 +19,87 @@ export const App = ({
     todos,
     undeleteTodo,
 }) => (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
-      </header>
-      <div className="tab">
-        <button
-           type="button"
-           onClick={() => switchTab('todo')}
-          >
-          Todo App
-        </button>
-      </div>
-      <div className="tab">
-        <button
-           type="button"
-           onClick={() => switchTab('patients')}
-          >
-          Patients
-        </button>
+    <div>
+      <div className="pure-g custom-wrapper">
+        <div className="pure-u-1-3">
+          <div className="pure-menu pure-menu-horizontal">
+            <a
+               className="pure-menu-heading pure-menu-link custom-wrapper-menu-link"
+               >
+              ULP
+            </a>
+          </div>
+        </div>
+        <div className="pure-u-1-3">
+          <div className="pure-menu pure-menu-horizontal">
+            <ul className="pure-menu-list">
+              <li className={'pure-menu-item ' + (tab === 'todo' ? 'custom-wrapper-menu-selected' : '')}>
+                <a
+                   className="pure-menu-link custom-wrapper-menu-link"
+                   onClick={() => switchTab('todo')}
+                  >
+                  Todo App
+                </a>
+              </li>
+              <li className={'pure-menu-item ' + (tab === 'patients' ? 'custom-wrapper-menu-selected' : '')}>
+                <a
+                   className="pure-menu-link custom-wrapper-menu-link"
+                   onClick={() => switchTab('patients')}
+                  >
+                  Patients
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       {tab === 'todo' &&
-          <div>
-                <AddTodo submitTodo={submitTodo} />
-                    <TodoList
-                           todos={todos}
-                           deleteTodo={deleteTodo}
-                           deletedTodos={deletedTodos}
-                           undeleteTodo={undeleteTodo}
-                           />
+          <div className="pure-g">
+                <div className="pure-u-1-5">
+                      <h1>Todo List</h1>
+                          <AddTodo submitTodo={submitTodo} />
+                              <TodoList
+                                     todos={todos}
+                                     deleteTodo={deleteTodo}
+                                     deletedTodos={deletedTodos}
+                                     undeleteTodo={undeleteTodo}
+                                     />
+                    </div>
               </div>
           }
           {tab === 'patients' &&
               <div>
-                    <h2>ULP Patients</h2>
-                        <button
-                               type="button"
-                               onClick={() => getPatients()}>
-                              Refresh
-                            </button>
-                    <PatientList
-                           status="recent"
-                           patients={patients}
-                           />
-                        <PatientList
-                               status="active"
-                               patients={patients}
-                               />
-                            <PatientList
-                                   status="discharged"
-                                   patients={patients}
-                                   />
+                    <div className="pure-g">
+                          <div className="pure-u-1-5">
+                                <h1>ULP Patients</h1>
+                                    <button
+                                           type="button"
+                                           className="pure-button pure-button-primary"
+                                           onClick={() => getPatients()}>
+                                          <i className="fa fa-refresh fa-spin" />
+                                        </button>
+                              </div>
+                        </div>
+                        <div className="pure-g">
+                              <div className="pure-u-1-3">
+                                    <PatientList
+                                           status="recent"
+                                           patients={patients}
+                                           />
+                                  </div>
+                                  <div className="pure-u-1-3">
+                                        <PatientList
+                                               status="active"
+                                               patients={patients}
+                                               />
+                                      </div>
+                                      <div className="pure-u-1-3">
+                                            <PatientList
+                                                   status="discharged"
+                                                   patients={patients}
+                                                   />
+                                          </div>
+                            </div>
                   </div>
               }
     </div>

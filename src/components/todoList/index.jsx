@@ -6,10 +6,10 @@ const TodoList = ({ todos, deleteTodo, deletedTodos, undeleteTodo }) => {
         <li key={todo.id}>
           <button
              type="button"
-             className="todo-delete"
+             className="pure-button todo-delete"
              onClick={() => deleteTodo(todo.id)}
             >
-            Delete
+            <i className="fa fa-trash"></i>
           </button>
           <span className="todo-text">{todo.text}</span>
         </li>
@@ -19,10 +19,10 @@ const TodoList = ({ todos, deleteTodo, deletedTodos, undeleteTodo }) => {
         <li key={todo.id}>
           <button
              type="button"
-             className="todo-undelete"
+             className="pure-button todo-undelete"
              onClick={() => undeleteTodo(todo.id)}
             >
-            Un-Delete
+            <i className="fa fa-undo"></i>
           </button>
           <span className="todo-deleted-text">{todo.text}</span>
         </li>
@@ -30,18 +30,22 @@ const TodoList = ({ todos, deleteTodo, deletedTodos, undeleteTodo }) => {
 
     return (
         <span>
-          <span>Active Todos:</span>
-          <ul>
-            {todoItems}
-          </ul>
-          {deletedTodoItems.length > 0 &&
+          {todoItems.length > 0 &&
               <span>
-                    <span>Deleted Todos:</span>
+                    <span>Active Todos:</span>
                         <ul>
-                              {deletedTodoItems}
+                              {todoItems}
                             </ul>
                   </span>
               }
+              {deletedTodoItems.length > 0 &&
+                  <span>
+                        <span>Deleted Todos:</span>
+                            <ul>
+                                  {deletedTodoItems}
+                                </ul>
+                      </span>
+                  }
         </span>
     );
 };
